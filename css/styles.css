@@ -1,0 +1,89 @@
+#backgroundDiv::after {
+    content: "";
+    background: url(../img/gridBackground.jpg);
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    max-width: 1700px;
+}
+
+#wholegame{
+    height: 60em;
+    width: 55em;
+    background-color: burlywood;
+    margin-left: 25%;
+    margin-top: 0;
+    text-align: center;
+
+}
+.blank {
+    height: 200px;
+    width: 200px;
+    background-color: bisque;
+    border: solid .1em brown;
+    display: inline-block;
+}
+.container{
+    margin-left: -25%;
+    margin-top: 1%;
+    text-align: center;
+}
+button {
+    margin-top: 1em;
+    background-color: beige;
+}
+#commit{
+    height: 3em;
+    width: 10em;
+}
+#buttonRow {
+    margin-top: 2em;
+}
+#auto{
+    width: 8em!important;
+    height: 3em!important;
+}
+#startover{
+    width: 8em!important;
+    height: 2.75em!important;
+}
+#winner{
+    position: fixed;
+    top: 25%;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    display: none;
+    background-color: greenyellow;
+    height: 2em;
+    width: 80%;
+    font-size: 4em;
+}
+#error{
+    position: fixed;
+    top: 25%;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    display: none;
+    background-color: palevioletred;
+    height: 2em;
+    width: 80%;
+    font-size: 4em;
+}
+#autoDraw{
+    position: fixed;
+    top: 25%;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    display: none;
+    background-color: salmon;
+    height: 2em;
+    width: 80%;
+    font-size: 4em;
+}

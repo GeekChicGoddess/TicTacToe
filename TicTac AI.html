@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="backgroundDiv">
+    <div id="wholegame">
+        <div class="container">
+            <div id="winner"></div>
+            <div id="error"></div>
+            <div id="autoDraw"></div>
+            <h1>Tic Tac Toe</h1>
+            <div class="row">
+                <div id="upperLeft" class="tile blank"></div>
+                <div id="upperCenter" class="tile blank"></div>
+                <div id="upperRight" class="tile blank"></div>
+            </div>
+            <div class="row">
+                <div id="middleLeft" class="tile blank"></div>
+                <div id="center" class="tile blank"></div>
+                <div id="middleRight" class="tile blank"></div>
+            </div>
+            <div class="row">
+                <div id="lowerLeft" class="tile blank"></div>
+                <div id="lowerCenter" class="tile blank"></div>
+                <div id="lowerRight" class="tile blank"></div>
+            </div>
+            <button id="commit">Commit Play</button><br>
+            <div class="row" id="buttonRow">
+                <button id="auto" class="col-md-1 col-md-offset-3">Play the House</button>
+                <button id="startover"class="col=md-1">Start Over</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous">
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>
