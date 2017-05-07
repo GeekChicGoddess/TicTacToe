@@ -70,6 +70,7 @@ button {
     height: 2em;
     width: 80%;
     font-size: 4em;
+    z-index: 2;
 }
 
 #error{
@@ -83,6 +84,7 @@ button {
     height: 2em;
     width: 80%;
     font-size: 4em;
+    z-index: 2;
 }
 
 #autoDraw{
@@ -96,4 +98,5 @@ button {
     height: 2em;
     width: 80%;
     font-size: 4em;
+    z-index: 2;
 }

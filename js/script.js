@@ -136,6 +136,47 @@ function makeReadyForNextPlayer (id){
     }
 }
 
+    function resetTheGameBoard() {
+        $("#winner").css("display", "none");
+        $("#error").css("display", "none");
+        $("#autoDraw").css("display", "none");
+        $(".tile").on('click', tileClick);
+        $(".tile").html("<img src='img/blank.png'>");
+        id = "";
+        gameboardArray = [
+            ["upperRight", "center", "lowerLeft"],
+            ["upperCenter", "center", "lowerCenter"],
+            ["upperLeft", "upperCenter", "upperRight"],
+            ["lowerLeft", "lowerCenter", "lowerRight"],
+            ["upperLeft", "middleLeft", "lowerLeft"],
+            ["upperRight", "middleRight", "lowerRight"],
+            ["upperLeft", "center", "lowerRight"],
+            ["middleLeft", "center", "middleRight"]
+        ];
+        gameStatusArray = [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ];
+        xInARow = 0;
+        oInARow = 0;
+        round = 1;
+        tempArray = gameboardArray.map(function (arr) {
+            return arr.slice();
+        });
+        tempStatusArray = gameStatusArray.slice();
+    }
+
+    $("#startover").click(function(){
+        resetTheGameBoard();
+        autoplaying = false;
+    });
+
 function doWeHaveAWinner (){
     loop1: for (var x = 0; x < tempArray.length; x++){
         xInARow = 0;
@@ -232,6 +273,8 @@ $("#commit").click(function () {
         }
     }
 });
+
+// BEGINNING OF AUTOPLAY FUNCTIONS ----------------------------------------------------------------
 
 function defense() {
     if(housePlay==="X") {
@@ -556,46 +599,6 @@ function autoplay() {
     makeReadyForNextPlayer(id);
     round++;
 }
-function resetTheGameBoard() {
-    $("#winner").css("display", "none");
-    $("#error").css("display", "none");
-    $("#autoDraw").css("display", "none");
-    $(".tile").on('click', tileClick);
-    $(".tile").html("<img src='img/blank.png'>");
-    id = "";
-    gameboardArray = [
-        ["upperRight", "center", "lowerLeft"],
-        ["upperCenter", "center", "lowerCenter"],
-        ["upperLeft", "upperCenter", "upperRight"],
-        ["lowerLeft", "lowerCenter", "lowerRight"],
-        ["upperLeft", "middleLeft", "lowerLeft"],
-        ["upperRight", "middleRight", "lowerRight"],
-        ["upperLeft", "center", "lowerRight"],
-        ["middleLeft", "center", "middleRight"]
-    ];
-    gameStatusArray = [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ];
-    xInARow = 0;
-    oInARow = 0;
-    round = 1;
-    tempArray = gameboardArray.map(function (arr) {
-        return arr.slice();
-    });
-    tempStatusArray = gameStatusArray.slice();
-}
-
-$("#startover").click(function(){
-    resetTheGameBoard();
-    autoplaying = false;
-});
 
 $("#auto").click(function(){
 //        first reset the game board =================================================================
@@ -608,9 +611,12 @@ $("#auto").click(function(){
         player = "O";
         playerX=true;
         playerO=false;
-        $("#autoDraw").text("Dice roll says House is X and goes first.");
+        $("#autoDraw").text("House wins dice roll and goes first.");
         $("#autoDraw").css("display", "inline");
+
+        (setTimeout(function(){
         autoplay();
+        },2000));
     }
     else{
         housePlay = "O";
