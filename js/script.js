@@ -106,11 +106,11 @@ function flipTheTile (whatIsThis, image){
         }
         else{ clearInterval(flipInterval); }
     }, 5);
-
-    setTimeout(function () {
-        $(whatIsThis).html(image);
-        $(whatIsThis).css("transform", "rotate3D(0,1,0, 0deg)");
-    },400);
+    //
+    // setTimeout(function () {
+    //     $(whatIsThis).html(image);
+    //     $(whatIsThis).css("transform", "rotate3D(0,1,0, 0deg)");
+    // },400);
 
     setTimeout(function () {
         $(whatIsThis).html(image);
