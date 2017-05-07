@@ -109,7 +109,7 @@ function flipTheTile (whatIsThis, image){
 
     setTimeout(function () {
         $(whatIsThis).html(image);
-        $(whatIsThis).css("transform", "none");
+        // $(whatIsThis).css("transform", "none");
     },400);
 
 }
