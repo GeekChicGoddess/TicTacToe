@@ -10,33 +10,38 @@
     position: absolute;
     z-index: -1;
     max-width: 1700px;
-    max-height: 800px!important;
 }
 
-#wholegame{
-    margin-top: 0;
-    text-align: center;
-    position: relative;
-
+#wholegame {
+    margin-left: 0;
 }
 
 .container{
-    position: fixed;
+    margin-top: 2%;
     background-color: burlywood;
     text-align: center;
 }
 
 .blank {
-    height: 150px;
-    width: 150px;
+    height: 11vw;
+    width: 11vw;
     background-color: bisque;
     border: solid .1em brown;
     display: inline-block;
+    min-height: 100px!important;
+    min-width: 100px!important;
+}
+
+img {
+    height: 100%;
+    width: 100%;
 }
 
 button {
     margin-top: 1vw;
     background-color: beige;
+    min-width: 50px!important;
+    min-height: 30px!important;
 }
 
 #commit{
@@ -91,11 +96,4 @@ button {
     height: 2em;
     width: 80%;
     font-size: 4em;
-}
-
-@media screen and (max-width: 600px) {
-    .blank {
-        height: 70px;
-        width: 70px;
-    }
 }
