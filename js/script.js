@@ -57,6 +57,23 @@ var tempStatusArray = gameStatusArray.slice();
 
 var noOtherChanges = "";
 var indexMarker = 0;
+
+// RUN THE CLICK FUNCTIONS==============================================
+
+    $(".tile").on('click', tileClick);
+
+    $("#auto").on('click', autoClick);
+
+    $("#commit").on('click', commitPlay);
+
+
+    $("#startover").click(function(){
+        resetTheGameBoard();
+        autoplaying = false;
+    });
+
+
+    // REGULAR PLAYER FUNCTIONS ==============================================
 function updateGameStatus (i, j){
     if (XorO==="X"){
         if (j===0){
@@ -172,11 +189,6 @@ function makeReadyForNextPlayer (id){
         tempStatusArray = gameStatusArray.slice();
     }
 
-    $("#startover").click(function(){
-        resetTheGameBoard();
-        autoplaying = false;
-    });
-
 function doWeHaveAWinner (){
     loop1: for (var x = 0; x < tempArray.length; x++){
         xInARow = 0;
@@ -215,7 +227,6 @@ function isItADraw() {
     }
 }
 
-$(".tile").on('click', tileClick);
 
 function tileClick () {
     $("#winner").css("display", "none");
@@ -258,7 +269,7 @@ function tileClick () {
 }
 
 
-$("#commit").click(function () {
+function commitPlay () {
 
     id = "#" + id;
     if ((id.indexOf("##") != -1) || arrayTheSame(gameboardArray, tempArray)) {
@@ -272,7 +283,8 @@ $("#commit").click(function () {
             autoplay();
         }
     }
-});
+}
+
 
 // BEGINNING OF AUTOPLAY FUNCTIONS ----------------------------------------------------------------
 
@@ -600,34 +612,38 @@ function autoplay() {
     round++;
 }
 
-$("#auto").click(function(){
+    function autoClick () {
+        $("#auto").off('click', autoClick);  // turn ofF the HousePlay button for a sec so user can't make this wonky by clicking over & over
 //        first reset the game board =================================================================
-    resetTheGameBoard();
+        resetTheGameBoard();
 //    start the autoplaying event ============================================================
-    autoplaying = true;
-    var whoGoesFirst = Math.floor(Math.random()*2.9);
-    if (whoGoesFirst == 1){
-        housePlay = "X";
-        player = "O";
-        playerX=true;
-        playerO=false;
-        $("#autoDraw").text("House wins dice roll and goes first.");
-        $("#autoDraw").css("display", "inline");
+        autoplaying = true;
+        var whoGoesFirst = Math.floor(Math.random() * 2.1);
+        if (whoGoesFirst == 1) {
+            housePlay = "X";
+            player = "O";
+            playerX = true;
+            playerO = false;
+            $("#autoDraw").text("House wins dice roll and goes first.");
+            $("#autoDraw").css("display", "inline");
 
-        (setTimeout(function(){
-        autoplay();
-        },2000));
-    }
-    else{
-        housePlay = "O";
-        player = "X";
-        playerX=true;
-        playerO=false;
-        $("#autoDraw").text("Dice roll says you are X and go first");
-        $("#autoDraw").css("display", "inline");
+            (setTimeout(function () {
+                autoplay();
+            }, 2000));
+        }
+        else {
+            housePlay = "O";
+            player = "X";
+            playerX = true;
+            playerO = false;
+            $("#autoDraw").text("Dice roll says you are X and go first");
+            $("#autoDraw").css("display", "inline");
+        }
+        setTimeout(function(){ // turn the button back on.
+            $("#auto").on('click', autoClick);
+        },2500);
     }
 
-});
 
 
 });
