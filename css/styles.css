@@ -27,8 +27,8 @@
 }
 
 .blank {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     background-color: bisque;
     border: solid .1em brown;
     display: inline-block;
